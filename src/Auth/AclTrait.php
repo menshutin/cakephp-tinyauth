@@ -93,6 +93,12 @@ trait AclTrait {
 		if (!$user) {
 			return false;
 		}
+		
+		if (isset($user["\0*\0_fields"]))
+ 		{
+ 		    $user=$user["\0*\0_fields"];
+ 		}
+
 
 		if ($this->getConfig('superAdmin')) {
 			$superAdminColumn = $this->getConfig('superAdminColumn');
